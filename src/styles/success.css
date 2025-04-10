@@ -1,0 +1,51 @@
+.success-container {
+    background-color: #d32f2f;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+    font-family: "Roboto", sans-serif;
+    position: relative;
+  }
+  
+  /* Sabit başlık */
+  .success-header {
+    font-size: 2.8rem;
+    font-weight: normal;
+    font-family: "Londrina Solid", cursive;
+    text-align: center;
+    padding: 5rem 1rem 0rem 1rem;
+  }
+  
+  /* Tebrik mesajı ekran ortasında */
+  .success-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .success-message h2 {
+    font-size: 5rem;
+    font-weight:lighter;
+    font-family: "Roboto Condensed", sans-serif;
+    line-height: 1.2;
+    margin: 0;
+  }
+  
+  /* Mobil uyumlu görünüm */
+  @media (max-width: 600px) {
+    .success-header {
+      font-size: 2rem;
+      padding-top: 1rem;
+    }
+  
+    .success-message h2 {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      word-break: break-word;
+      white-space: pre-line;
+    }
+  }
+  

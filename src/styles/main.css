@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+  }
+  
+  
+  .brand {
+    font-size: 2rem;
+    margin-bottom: 0rem;
+    font-family: "Londrina Solid", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .slogan {
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-top: 1.8rem;
+    margin-bottom: 1.8rem;
+    font-family: "Barlow", sans-serif;
+  }
+  
+  .order-button {
+    background-color: #ffca28;
+    color: black;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    width: 175px;
+    font-family: "Barlow", sans-serif;
+    transition: background-color 0.3s;
+  }
+  
+  .order-button:hover {
+    background-color: #ffc107;
+  }
+
+  .app {  
+    background-image: url("../images/iteration-1-images/home-banner.png"); /* Resim dosyasının yolu */  
+    background-size: cover; /* Resmin boyutunu kapsayacak şekilde ayarlama */  
+    background-position: center; /* Resmi ortalama */  
+    height: 100vh; /* Tam ekran yüksekliği */
+    width: 100vw;  
+    display: flex;  
+    justify-content: center;  
+    align-items: flex-start;  
+    position: relative;  
+    color: white; /* Metin rengi */
+    min-width: 320px;  
+  }  
+
+  .overlay {  
+    display: flex;  
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 2%;
+}
+
+@media (max-width: 500px) {
+    body {
+      min-width: 400px;
+    }
+  }
+  
+  
