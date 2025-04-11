@@ -79,7 +79,7 @@ const OrderPage = () => {
   };
 
   useEffect(() => {
-    const sendOrder = async () => {
+    if (isSubmitting) {
       const orderData = {
         isim: name,
         boyut: size,
@@ -90,34 +90,31 @@ const OrderPage = () => {
         toplamTutar: total.toFixed(2),
       };
 
-      try {
-        const response = await axios.post(
-          "https://reqres.in/api/pizza",
-          orderData
-        );
-        console.log("Sipariş Özeti:", response.data);
+      axios
+        .post("https://reqres.in/api/pizza", orderData)
+        .then((response) => {
+          console.log("✅ Sipariş başarıyla gönderildi:", response.data);
 
-        // Form reset
-        setName("");
-        setSize("");
-        setDough("");
-        setToppings([]);
-        setNote("");
-        setQuantity(1);
-        setErrors({});
-        setIsSubmitting(false);
+          // Formu sıfırla
+          setName("");
+          setSize("");
+          setDough("");
+          setToppings([]);
+          setNote("");
+          setQuantity(1);
+          setErrors({});
+          setIsSubmitting(false);
 
-        history.push("/success");
-      } catch (err) {
-        alert("Sipariş gönderilemedi: " + err.message);
-        setIsSubmitting(false);
-      }
-    };
-
-    if (isSubmitting) {
-      sendOrder();
+          // Başarı sayfasına yönlendir
+          history.push("/success");
+        })
+        .catch((error) => {
+          console.error("❌ Sipariş gönderme hatası:", error);
+          alert("Sipariş gönderilemedi. Lütfen tekrar deneyin.");
+          setIsSubmitting(false);
+        });
     }
-  }, [isSubmitting]);
+  }, [isSubmitting, isFormValid]);
 
   return (
     <>
