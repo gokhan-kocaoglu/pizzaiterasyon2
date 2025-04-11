@@ -13,6 +13,10 @@ const Card = styled.div`
   &:hover {
     transform: translateY(-4px);
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const ProductImage = styled.img`
@@ -27,20 +31,32 @@ const ProductName = styled.h3`
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0.5rem 0;
+  color: black;
+  text-align: left;
+`;
+
+const ProductFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.5rem;
 `;
 
 const ProductMeta = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 0.75rem;
+  justify-content: space-between;
+  width: 100%;
   font-size: 0.9rem;
   color: #666;
+  width: calc(100% - 60px);
 `;
 
 const ProductPrice = styled.div`
-  margin-top: 0.5rem;
   font-weight: 600;
   font-size: 1rem;
+  color: black;
+  text-align: left;
 `;
 
 const ProductCard = ({ product }) => {
@@ -48,11 +64,13 @@ const ProductCard = ({ product }) => {
     <Card>
       <ProductImage src={product.image} alt={product.name} />
       <ProductName>{product.name}</ProductName>
-      <ProductMeta>
-        <span>⭐ {product.rating}</span>
-        <span>({product.reviews})</span>
-      </ProductMeta>
-      <ProductPrice>{product.price}₺</ProductPrice>
+      <ProductFooter>
+        <ProductMeta>
+          <span>⭐ {product.rating}</span>
+          <span>({product.reviews})</span>
+        </ProductMeta>
+        <ProductPrice>{product.price}₺</ProductPrice>
+      </ProductFooter>
     </Card>
   );
 };

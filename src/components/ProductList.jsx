@@ -9,6 +9,10 @@ const ListWrapper = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
   padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* 🔥 Mobilde tek sütun */
+  }
 `;
 
 const ProductList = ({ products }) => {

@@ -12,7 +12,7 @@ const Wrapper = styled.section`
   display: flex;
   max-width: 100%;
   flex-direction: column;
-  background-color: #fafafa; // Açık arka plan
+  background-color: #fafaf7; // Açık arka plan
   padding: 4rem 1rem;
   gap: 2rem;
 

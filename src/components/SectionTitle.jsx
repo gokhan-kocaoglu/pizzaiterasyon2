@@ -5,6 +5,9 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   text-align: center;
   margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 `;
 
 const SubTitle = styled.p`
@@ -15,16 +18,33 @@ const SubTitle = styled.p`
 `;
 
 const MainTitle = styled.h2`
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-family: "Barlow", sans-serif;
   font-weight: 600;
   margin-top: 0.5rem;
+  color: black;
+  text-align: center;
+
+  span {
+    display: inline; /* masaüstü için */
+  }
+
+  @media (max-width: 768px) {
+    span {
+      display: block; /* 🔥 mobilde alt alta */
+    }
+  }
 `;
 
 const SectionTitle = () => {
   return (
     <Wrapper>
       <SubTitle>en çok paketlenen menüler</SubTitle>
-      <MainTitle>Acıktıran Kodlara Doyuran Lezzetler</MainTitle>
+      <MainTitle>
+        <span>Acıktıran </span>
+        <span>Kodlara Doyuran </span>
+        <span>Lezzetler</span>
+      </MainTitle>
     </Wrapper>
   );
 };
