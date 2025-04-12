@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Button } from "reactstrap";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 const Card = styled.div`
   padding: 1.5rem;
@@ -85,11 +86,16 @@ const Image = styled.img`
 `;
 
 const RightBannerCard = ({ title, image, bg, color }) => {
+  const history = useHistory();
+
+  const handleOrderClick = () => {
+    history.push("/siparis");
+  };
   return (
     <Card bg={bg} color={color}>
       <TextGroup>
         <Title>{title}</Title>
-        <OrderBtn>SİPARİŞ VER</OrderBtn>
+        <OrderBtn onClick={handleOrderClick}>SİPARİŞ VER</OrderBtn>
       </TextGroup>
       <Image src={image} alt={title} />
     </Card>

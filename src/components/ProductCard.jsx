@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import styled from "styled-components";
 
 const Card = styled.div`
@@ -60,8 +61,13 @@ const ProductPrice = styled.div`
 `;
 
 const ProductCard = ({ product }) => {
+  const history = useHistory();
+
+  const handleOrderClick = () => {
+    history.push("/siparis");
+  };
   return (
-    <Card>
+    <Card onClick={handleOrderClick}>
       <ProductImage src={product.image} alt={product.name} />
       <ProductName>{product.name}</ProductName>
       <ProductFooter>

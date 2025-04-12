@@ -93,7 +93,6 @@ const Slogan = styled.h2`
   }
 `;
 
-// Reactstrap butonu özelleştirme
 const OrderButton = styled(Button)`
   background-color: #ffca28;
   color: black;
