@@ -11,6 +11,7 @@ import IngredientsSelector from "../components/IngredientsSelector";
 import NoteInput from "../components/NoteInput";
 import SubmitButton from "../components/SubmitButton";
 import QuantityControl from "../components/QuantityControl";
+import Footer from "../components/Footer";
 
 const BASE_PRICE = 85.5;
 const EXTRA_TOPPING_PRICE = 5;
@@ -119,23 +120,40 @@ const OrderPage = () => {
   return (
     <>
       <Header />
-      <form className="order-container" onSubmit={handleSubmit} noValidate>
-        <h2 data-cy="data-header">Position Absolute Acı Pizza</h2>
-        <div className="price-rating">
-          <span className="price">{BASE_PRICE.toFixed(2)}₺</span>
-          <span className="rating">4.9 ⭐ (200)</span>
+      <div className="title-grid">
+        <div className="title-div">
+          <img
+            className="title-div-img"
+            src="../images/iteration-2-images/pictures/form-banner.png"
+            alt="pizza"
+          />
+          <p className="header-subtitle">
+            <span>Anasayfa</span> - <strong>Sipariş Oluştur</strong>
+          </p>
+          <h2 data-cy="data-header">Position Absolute Acı Pizza</h2>
+          <div className="price-rating">
+            <span className="price">{BASE_PRICE.toFixed(2)}₺</span>
+            <span className="rating">4.9 ⭐ (200)</span>
+          </div>
+          <p className="description">
+            Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı
+            pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli
+            diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun
+            ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle
+            yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan
+            kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta
+            denir.
+          </p>
         </div>
-        <p className="description">
-          Frontend Dev olarak hala position:absolute kullanıyorsan bu çok acı
-          pizza tam sana göre...
-        </p>
+      </div>
 
+      <form className="order-container" onSubmit={handleSubmit} noValidate>
         <div className="size-dough-wrapper">
           <div className="option-group">
             <SizeSelector
               label="Boyut Seç"
               name="size"
-              options={["Küçük", "Orta", "Büyük"]}
+              options={["S", "M", "L"]}
               selected={size}
               onChange={setSize}
             />
@@ -196,6 +214,7 @@ const OrderPage = () => {
           </div>
         </div>
       </form>
+      <Footer></Footer>
     </>
   );
 };

@@ -136,7 +136,9 @@ const HeaderSection = () => {
             <br />
             PIZZA, DOYURUR
           </Slogan>
-          <OrderButton onClick={handleOrderClick}>ACIKTIM</OrderButton>
+          <OrderButton data-cy="btn-aciktim" onClick={handleOrderClick}>
+            ACIKTIM
+          </OrderButton>
         </Overlay>
       </Parent>
     </HeaderContainer>

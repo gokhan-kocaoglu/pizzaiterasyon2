@@ -1,12 +1,43 @@
 form.order-container {
     display: flex;
     flex-direction: column;
-    max-width: 500px;
+    max-width: 530px;
     margin: 40px auto;
     padding: 20px;
     font-family: Arial, sans-serif;
     color: #1a1a1a;
     background-color: #fff;
+  }
+
+  .title-grid{
+    width:100%;
+    background-color: #faf7f2;
+  }
+
+  .title-div{
+    display: flex;
+    flex-direction: column;
+    max-width: 530px;
+    margin: auto;
+    padding: 0rem 1.25rem;
+    font-family: "Barlow", sans-serif;
+    color: #1a1a1a;
+  }
+
+  .title-div p strong{
+    color: red;
+  }
+
+  .title-div-img{
+    object-fit: cover;
+  }
+
+  .title-div h2{
+    padding-bottom: 1rem;
+    font-family: "Barlow", sans-serif;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-align: left;
   }
   
   form.order-container h2 {
@@ -40,8 +71,7 @@ form.order-container {
   }
   
   .option-group label {
-    display: block;
-    font-weight: bold;
+    display: flex;
     margin-bottom: 8px;
     text-align: left;
   }
@@ -101,7 +131,6 @@ form.order-container {
   
   .option-group select {
     appearance: none;
-    background-color: #fff;
     background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTAnIGhlaWdodD0nNycgdmlld0JveD0nMCAwIDEwIDcnIGZpbGw9J25vbmUnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTEgMUw1IDVMOSAxJyBzdHJva2U9JyMzMzMnIHN0cm9rZS13aWR0aD0nMicvPjwvc3ZnPg==");
     background-repeat: no-repeat;
     background-position: right 10px center;
