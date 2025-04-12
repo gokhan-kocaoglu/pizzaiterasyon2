@@ -94,9 +94,8 @@ const OrderPage = () => {
       axios
         .post("https://reqres.in/api/pizza", orderData)
         .then((response) => {
-          console.log("✅ Sipariş başarıyla gönderildi:", response.data);
+          console.log("Sipariş başarıyla gönderildi:", response.data);
 
-          // Formu sıfırla
           setName("");
           setSize("");
           setDough("");
@@ -106,11 +105,10 @@ const OrderPage = () => {
           setErrors({});
           setIsSubmitting(false);
 
-          // Başarı sayfasına yönlendir
-          history.push("/success");
+          history.push("/success", response.data);
         })
         .catch((error) => {
-          console.error("❌ Sipariş gönderme hatası:", error);
+          console.error("Sipariş gönderme hatası:", error);
           alert("Sipariş gönderilemedi. Lütfen tekrar deneyin.");
           setIsSubmitting(false);
         });
