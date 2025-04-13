@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 
 const Container = styled.div`
   background-color: #d32f2f;
-  min-height: 100vh;
   color: white;
   font-family: "Barlow", sans-serif;
   display: flex;
@@ -15,7 +14,16 @@ const Container = styled.div`
   text-align: center;
 `;
 
-const Title = styled.h1`
+const Title1 = styled.h1`
+  font-size: 3.2rem;
+  margin-top: 1rem;
+  letter-spacing: 2px;
+  font-weight: 400;
+  height: auto;
+  font-family: "Londrina Solid", sans-serif;
+`;
+
+const Title2 = styled.h1`
   font-size: 5.3rem;
   margin-top: 1rem;
   letter-spacing: 2px;
@@ -80,6 +88,55 @@ const OrderItem = styled.p`
   }
 `;
 
+const SummaryBox = styled.div`
+  border-radius: 0.3rem;
+  flex-grow: 1;
+  min-width: 350px;
+  min-height: 180px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  margin-top: 2rem;
+  margin-bottom: 5.2rem;
+  color: white;
+`;
+
+const SummaryTitle = styled.p`
+  text-align: left;
+  padding-top: 1rem;
+  padding-left: 2rem;
+  font-weight: bold;
+  font-family: "Barlow", sans-serif;
+  font-size: 16px;
+`;
+
+const SummaryRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+  padding: 0 1rem;
+`;
+
+const Label = styled.span`
+  font-size: 14px;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  color: white;
+`;
+
+const WhiteLabel = styled(Label)`
+  color: white;
+`;
+
+const Value = styled.span`
+  font-size: 14px;
+  padding-right: 1rem;
+  padding-top: 1rem;
+`;
+
+const WhiteValue = styled(Value)`
+  color: white;
+`;
+
 const SuccessPage = () => {
   const { state } = useLocation();
   const { isim, boyut, hamur, malzemeler, toplamTutar } = state || {};
@@ -89,10 +146,10 @@ const SuccessPage = () => {
   return (
     <>
       <Container>
-        <h2>Teknolojik Yemekler</h2>
+        <Title1>Teknolojik Yemekler</Title1>
         <Subtitle>lezzetin yolda</Subtitle>
         <TitleWrapper>
-          <Title>SİPARİŞ ALINDI</Title>
+          <Title2>SİPARİŞ ALINDI</Title2>
           <Divider />
         </TitleWrapper>
 
@@ -115,17 +172,17 @@ const SuccessPage = () => {
           </OrderItem>
         </OrderItemDiv>
 
-        <OrderBox>
-          <p>
-            <strong>Sipariş Toplamı</strong>
-          </p>
-          <OrderItem>
-            <span>Seçimler:</span> {extraPrice.toFixed(2)}₺
-          </OrderItem>
-          <OrderItem>
-            <span>Toplam:</span> {toplamTutar}₺
-          </OrderItem>
-        </OrderBox>
+        <SummaryBox>
+          <SummaryTitle>Sipariş Toplamı</SummaryTitle>
+          <SummaryRow>
+            <Label>Seçimler</Label>
+            <Value data-cy="data-light-value">{extraPrice.toFixed(2)}₺</Value>
+          </SummaryRow>
+          <SummaryRow>
+            <WhiteLabel>Toplam</WhiteLabel>
+            <WhiteValue data-cy="data-red-value">{toplamTutar}₺</WhiteValue>
+          </SummaryRow>
+        </SummaryBox>
       </Container>
       <Footer></Footer>
     </>

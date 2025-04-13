@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    min-height: 120px; /* responsive yükseklik */
+    min-height: 120px;
     box-sizing: border-box;
     max-height: 160px;
   }
