@@ -38,6 +38,7 @@ const ProductFilter = ({ categories, selected, onSelect }) => {
     <FilterWrapper>
       {categories.map((cat) => (
         <FilterButton
+          data-cy="product-card"
           key={cat.id}
           active={selected === cat.id}
           onClick={() => onSelect(cat.id)}

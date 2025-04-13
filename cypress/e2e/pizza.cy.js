@@ -1,18 +1,31 @@
 describe("Anasayfa yönlendirme testi", () => {
     it("Acıktım butonuna tıklanınca /siparis sayfasına yönlendirilir", () => {
-      // Anasayfayı ziyaret et
       cy.visit("http://localhost:5173");
-  
-      // Butonu bul ve tıkla
       cy.get('[data-cy="btn-aciktim"]').click();
-  
-      // Yönlendirme kontrolü
       cy.url().should("include", "/siparis");
-  
-      // Sipariş sayfasına ait içerik kontrolü (isteğe bağlı ama önerilir)
       cy.contains("Position Absolute Acı Pizza").should("be.visible");
     });
   });
+
+  describe("Ürün Filtresi", () => {
+    beforeEach(() => {
+      cy.visit("http://localhost:5173"); 
+    });
+  
+    it("Kategori değişince ürünler değişmeli", () => {
+      let firstSet = [];
+      cy.get('[data-cy="product-card"]').then(($cards) => {
+        firstSet = [...$cards].map((el) => el.innerText);
+      });
+      cy.get("button").eq(1).click();
+      cy.get('[data-cy="product-card"]').should(($newCards) => {
+        const secondSet = [...$newCards].map((el) => el.innerText);
+        expect(secondSet).to.not.deep.equal(firstSet);
+      });
+    });
+  });
+  
+  
 
   describe("Sipariş Sayfası", () => {
     beforeEach(() => {
@@ -20,25 +33,12 @@ describe("Anasayfa yönlendirme testi", () => {
     });
   
     it("Tüm form bileşenleri görüntüleniyor mu?", () => {
-      // Başlık
       cy.get('[data-cy="data-header"]').should("exist");
-  
-      // Boyut seçimi
       cy.get('[data-cy="data-size"]').should("exist");
-  
-      // Hamur kalınlığı
       cy.get('[data-cy="data-dough"]').should("exist");
-  
-      // Ek malzemeler
       cy.get('[data-cy="data-Ingredients"]').should("exist");
-  
-      // İsim inputu
       cy.get('[data-cy="data-name"]').should("exist");
-  
-      // Sipariş notu
       cy.get('[data-cy="data-note"]').should("exist");
-  
-      // Sipariş butonu
       cy.get('[data-cy="data-submit"]').should("exist");
     });
   });
@@ -117,32 +117,18 @@ describe("Anasayfa yönlendirme testi", () => {
     it("Tüm alanlar doğru girildiğinde başarıyla yönlendirme yapar", () => {
       cy.visit("http://localhost:5173/siparis");
   
-      // İsim gir
       cy.get('[data-cy="data-name-input"]').type("Gökhan Kocaoğlu");
-  
-      // Boyut seç
       cy.get('[data-cy="data-size"] input[type="radio"]').first().check({ force: true });
-  
-      // Hamur kalınlığı seç
       cy.get('[data-cy="data-dough"] select').select("Orta");
-  
-      // Malzeme seçimi (en az 4)
       cy.get('[data-cy="data-Ingredients"] input[type="checkbox"]').eq(0).check({ force: true });
       cy.get('[data-cy="data-Ingredients"] input[type="checkbox"]').eq(1).check({ force: true });
       cy.get('[data-cy="data-Ingredients"] input[type="checkbox"]').eq(2).check({ force: true });
       cy.get('[data-cy="data-Ingredients"] input[type="checkbox"]').eq(3).check({ force: true });
   
-      // Sipariş notu gir
       cy.get('[data-cy="data-note"]').type("Bol peynirli olsun!");
-  
-      // Gönder
       cy.get('[data-cy="data-submit"]').click();
-  
-      // Success sayfasına yönlendirildi mi?
       cy.url().should("include", "/success");
-  
-      // Tebrik mesajı görünüyor mu?
-      cy.contains("TEBRİKLER!").should("exist");
+      cy.contains("SİPARİŞ ALINDI").should("exist");
     });
   });
   

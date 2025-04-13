@@ -18,7 +18,7 @@ const Wrapper = styled.section`
   gap: 2rem;
 
   @media (max-width: 768px) {
-    padding: 4rem 0rem;
+    padding: 4rem 0rem 0rem 0rem;
   }
 `;
 
@@ -34,6 +34,7 @@ const MainProductSection = () => {
       <BannerSection />
       <SectionTitle />
       <ProductFilter
+        data-cy="product-card"
         categories={categories}
         selected={selectedCategory}
         onSelect={setSelectedCategory}
