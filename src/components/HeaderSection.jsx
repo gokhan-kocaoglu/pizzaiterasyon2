@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Button } from "reactstrap";
 import { useHistory } from "react-router-dom";
 
-// Arka planlı tam ekran kapsayıcı
 const HeaderContainer = styled.section`
   height: 100vh;
   width: 100%;
@@ -39,7 +38,6 @@ const Title = styled.div`
   align-items: center;
 `;
 
-// İçerik hizalayıcı
 const Overlay = styled.div`
   display: flex;
   flex-direction: column;
@@ -64,7 +62,6 @@ const Slg = styled.p`
   }
 `;
 
-// Yazılar
 const Brand = styled.h1`
   font-size: 3.12rem;
   font-weight: 400px;

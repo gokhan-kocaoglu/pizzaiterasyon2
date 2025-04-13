@@ -1,4 +1,3 @@
-// src/components/SectionTitle.jsx
 import React from "react";
 import styled from "styled-components";
 
@@ -26,12 +25,12 @@ const MainTitle = styled.h2`
   text-align: center;
 
   span {
-    display: inline; /* masaüstü için */
+    display: inline;
   }
 
   @media (max-width: 768px) {
     span {
-      display: block; /* 🔥 mobilde alt alta */
+      display: block;
     }
   }
 `;

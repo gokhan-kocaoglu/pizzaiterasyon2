@@ -11,7 +11,7 @@ const ListWrapper = styled.div`
   padding: 0 1rem;
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr; /* 🔥 Mobilde tek sütun */
+    grid-template-columns: 1fr;
   }
 `;
 

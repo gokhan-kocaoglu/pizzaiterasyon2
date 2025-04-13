@@ -16,13 +16,13 @@ const Instagram = styled.div`
 
   .grid {
     display: flex;
-    flex-wrap: wrap; /* 🔥 Satıra sığmayan aşağı geçer */
-    gap: 0.5rem; /* 🔥 Tüm görseller arası boşluk */
+    flex-wrap: wrap;
+    gap: 0.5rem;
     justify-content: flex-start;
   }
 
   .grid img {
-    width: calc(33.33% - 0.35rem); /* 🔥 3’lü sütun görünümü */
+    width: calc(33.33% - 0.35rem);
     height: auto;
     max-width: 105px;
     aspect-ratio: 1/1;

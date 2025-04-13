@@ -40,7 +40,7 @@ const CheckboxItem = styled.label`
   margin-bottom: 1rem;
 
   @media (max-width: 600px) {
-    flex: 0 1 calc(50% - 10px); /* ✅ Mobilde 2 sütun */
+    flex: 0 1 calc(50% - 10px);
   }
 `;
 
